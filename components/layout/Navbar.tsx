@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Download } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 
 const links = [
@@ -90,16 +90,6 @@ export default function Navbar() {
           {/* Right actions */}
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <a
-              href="/cv.pdf"
-              download
-              className="hidden md:flex items-center gap-1.5 px-4 py-2 rounded-full border
-                         border-indigo-500 text-indigo-500 dark:text-indigo-400 text-sm font-medium
-                         hover:bg-indigo-500/10 transition-all duration-200 hover:scale-105 focus:outline-none"
-            >
-              <Download size={14} />
-              CV
-            </a>
             {/* Mobile hamburger */}
             <button
               onClick={() => setOpen(v => !v)}
@@ -150,17 +140,6 @@ export default function Navbar() {
                   </button>
                 ))}
               </nav>
-              <div className="mt-auto pt-8 flex flex-col gap-4">
-                <a
-                  href="/cv.pdf"
-                  download
-                  className="flex items-center justify-center gap-2 px-4 py-3 rounded-full
-                             bg-indigo-500 text-white font-medium text-sm"
-                >
-                  <Download size={14} />
-                  Download CV
-                </a>
-              </div>
             </motion.div>
           </>
         )}

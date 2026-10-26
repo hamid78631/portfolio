@@ -1,6 +1,8 @@
 # syntax=docker/dockerfile:1.7
 
-ARG NODE_VERSION=22-alpine
+ARG NODE_VERSION=22-alpine3.22
+# Doit correspondre à l'Alpine de l'image node ci-dessus (même musl / libstdc++)
+ARG ALPINE_VERSION=3.22
 
 # ---------- 1. Dépendances ----------
 FROM node:${NODE_VERSION} AS deps
@@ -19,8 +21,12 @@ COPY . .
 RUN npm run build
 
 # ---------- 3. Runtime minimal ----------
-FROM node:${NODE_VERSION} AS runner
+# Alpine nu + binaire node seul (sans npm/yarn/corepack) : plus léger, moins de surface d'attaque
+FROM alpine:${ALPINE_VERSION} AS runner
 WORKDIR /app
+
+RUN apk add --no-cache libstdc++ libgcc
+COPY --from=builder /usr/local/bin/node /usr/local/bin/node
 
 ENV NODE_ENV=production \
     NEXT_TELEMETRY_DISABLED=1 \

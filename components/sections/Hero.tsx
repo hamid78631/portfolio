@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Download } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/ui/icons';
 import { useTypewriter } from '@/hooks/useTypewriter';
 import dynamic from 'next/dynamic';
@@ -126,16 +126,6 @@ export default function Hero() {
                   <Icon size={17} />
                 </a>
               ))}
-              <a
-                href="/cv.pdf"
-                download
-                className="ml-1 flex items-center gap-1.5 text-sm font-medium
-                           text-slate-500 dark:text-slate-400 hover:text-indigo-500
-                           dark:hover:text-indigo-400 transition-colors"
-              >
-                <Download size={14} />
-                Download CV
-              </a>
             </motion.div>
           </div>
 
