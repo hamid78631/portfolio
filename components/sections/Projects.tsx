@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Star, Calendar, ChevronDown } from 'lucide-react';
 import { GithubIcon } from '@/components/ui/icons';
 import SectionHeader from '@/components/ui/SectionHeader';
+import ProjectMedia from '@/components/ui/ProjectMedia';
 import { projects, projectCategories } from '@/data/projects';
 import type { Project } from '@/types';
 
@@ -34,6 +35,8 @@ const TILE_ICON_BG: Record<Project['category'], string> = {
   mobile: 'bg-pink-500',
 };
 
+const hasMedia = (p: Project) => Boolean(p.video || p.image);
+
 function FeaturedCard({ project }: { project: Project }) {
   return (
     <motion.div
@@ -46,20 +49,26 @@ function FeaturedCard({ project }: { project: Project }) {
                  lg:grid lg:grid-cols-[55%_45%]"
     >
       {/* Image */}
-      <div className={`relative h-64 lg:h-auto ${TILE_BG[project.category]} flex items-center justify-center`}>
+      <div className={`relative overflow-hidden ${TILE_BG[project.category]} flex items-center justify-center ${
+        hasMedia(project) ? 'aspect-video lg:aspect-auto lg:min-h-[340px]' : 'h-64 lg:h-auto'
+      }`}>
         <div className="absolute top-4 left-4 z-10">
           <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-indigo-500 text-white text-xs font-code">
             <Star size={10} className="fill-white" /> Featured
           </span>
         </div>
-        <div className="text-center px-8">
-          <div className={`w-20 h-20 rounded-2xl ${TILE_ICON_BG[project.category]} flex items-center justify-center mx-auto mb-4 shadow-lg`}>
-            <span className="font-heading font-bold text-white text-3xl">{project.title[0]}</span>
+        {hasMedia(project) ? (
+          <ProjectMedia project={project} sizes="(max-width: 1024px) 100vw, 620px" />
+        ) : (
+          <div className="text-center px-8">
+            <div className={`w-20 h-20 rounded-2xl ${TILE_ICON_BG[project.category]} flex items-center justify-center mx-auto mb-4 shadow-lg`}>
+              <span className="font-heading font-bold text-white text-3xl">{project.title[0]}</span>
+            </div>
+            <p className="font-code text-xs text-slate-500 dark:text-slate-400 tracking-wider">
+              {project.tags.join(' · ')}
+            </p>
           </div>
-          <p className="font-code text-xs text-slate-500 dark:text-slate-400 tracking-wider">
-            {project.tags.join(' · ')}
-          </p>
-        </div>
+        )}
       </div>
 
       {/* Content */}
@@ -124,16 +133,20 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     >
       {/* Image zone */}
       <div className={`relative h-44 ${TILE_BG[project.category]} flex items-center justify-center overflow-hidden`}>
-        <div className="absolute top-3 left-3">
-          <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-code ${CAT_COLORS[project.category]}`}>
+        <div className="absolute top-3 left-3 z-10">
+          <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-code backdrop-blur-sm ${CAT_COLORS[project.category]}`}>
             {project.category.toUpperCase()}
           </span>
         </div>
 
-        {/* Placeholder icon */}
-        <div className={`w-14 h-14 rounded-xl ${TILE_ICON_BG[project.category]} flex items-center justify-center shadow-md`}>
-          <span className="font-heading font-bold text-white text-2xl">{project.title[0]}</span>
-        </div>
+        {hasMedia(project) ? (
+          <ProjectMedia project={project} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px" />
+        ) : (
+          /* Placeholder icon */
+          <div className={`w-14 h-14 rounded-xl ${TILE_ICON_BG[project.category]} flex items-center justify-center shadow-md`}>
+            <span className="font-heading font-bold text-white text-2xl">{project.title[0]}</span>
+          </div>
+        )}
 
         {/* Hover overlay */}
         <AnimatePresence>
