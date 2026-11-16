@@ -3,6 +3,10 @@ export interface Project {
   title: string;
   description: string;
   image?: string;
+  /** Vidéo de démo (dans /public), prioritaire sur `image` */
+  video?: string;
+  /** Image affichée avant le chargement de la vidéo */
+  poster?: string;
   tags: string[];
   category: 'web' | 'data' | 'devops' | 'bi' | 'erp' | 'mobile';
   github?: string;

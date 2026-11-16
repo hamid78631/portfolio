@@ -6,6 +6,8 @@ export const projects: Project[] = [
     title: 'PneumoScan AI',
     description:
       'Explainable AI web app that detects pneumonia from chest X-rays and shows Grad-CAM heatmaps of the regions driving each prediction, not just a raw classification. Built as an engineering capstone project.',
+    video: '/videos/pneumoscan.mp4',
+    poster: '/images/projects/pneumoscan.jpg',
     tags: ['React', 'Laravel', 'FastAPI', 'TensorFlow', 'Grad-CAM', 'MySQL'],
     category: 'data',
     github: 'https://github.com/hamid78631/PneumoScan',
@@ -87,6 +89,8 @@ export const projects: Project[] = [
     title: 'AgenceImmo',
     description:
       'Real estate agency showcase built on Laravel, with Eloquent-backed property listings, migrations, and Vite-bundled frontend assets.',
+    video: '/videos/agenceimmo.mp4',
+    poster: '/images/projects/agenceimmo.jpg',
     tags: ['Laravel', 'PHP', 'Vite', 'MySQL'],
     category: 'web',
     github: 'https://github.com/hamid78631/AgenceImmo',
