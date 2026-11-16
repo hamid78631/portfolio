@@ -119,7 +119,6 @@ export default function About() {
             className="space-y-8"
           >
             <SectionHeader
-              eyebrow="// About Me"
               title="Crafting Digital Experiences with Purpose"
               align="left"
             />

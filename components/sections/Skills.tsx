@@ -82,7 +82,6 @@ export default function Skills() {
     <section id="skills" className="py-24 bg-[#FAFBFF] dark:bg-[#080C14]">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
-          eyebrow="// Tech Stack"
           title="Skills & Technologies"
           subtitle="A curated set of tools I use to bring ideas to life."
         />

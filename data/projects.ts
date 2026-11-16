@@ -41,6 +41,19 @@ export const projects: Project[] = [
     year: '2026',
   },
   {
+    id: '10',
+    title: 'PawCare',
+    description:
+      'Pet-sitting platform connecting owners with verified sitters: search by city and animal, book in a few clicks with automatic pricing, track each booking and review sitters afterwards. Includes Pawly, an AI assistant that answers owners around the clock without ever giving veterinary diagnoses.',
+    video: '/videos/pawcare.mp4',
+    poster: '/images/projects/pawcare.jpg',
+    tags: ['React', 'NestJS', 'PostgreSQL', 'FastAPI', 'Groq'],
+    category: 'web',
+    github: 'https://github.com/hamid78631/pawcare',
+    status: 'completed',
+    year: '2026',
+  },
+  {
     id: '4',
     title: 'ProLoc — Odoo ERP Deployment',
     description:
