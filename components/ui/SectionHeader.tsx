@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 
 interface SectionHeaderProps {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   subtitle?: string;
   align?: 'left' | 'center';
@@ -19,9 +19,11 @@ export default function SectionHeader({
 
   return (
     <div className={cn('mb-14', isCenter && 'text-center', className)}>
-      <p className="font-code text-indigo-500 dark:text-indigo-400 text-sm tracking-widest uppercase mb-3">
-        {eyebrow}
-      </p>
+      {eyebrow && (
+        <p className="font-code text-indigo-500 dark:text-indigo-400 text-sm tracking-widest uppercase mb-3">
+          {eyebrow}
+        </p>
+      )}
       <h2 className="font-heading font-bold text-3xl md:text-4xl text-slate-900 dark:text-slate-100 leading-tight mb-4">
         {title}
       </h2>

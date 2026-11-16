@@ -68,7 +68,6 @@ export default function Contact() {
     <section id="contact" className="py-24 bg-[#EEF2FF] dark:bg-[#0D1220]">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
-          eyebrow="// Get In Touch"
           title="Let's Work Together"
           subtitle="Have a project in mind or just want to say hi? My inbox is always open."
         />

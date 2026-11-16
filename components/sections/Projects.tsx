@@ -237,7 +237,6 @@ export default function Projects() {
     <section id="projects" className="py-24 bg-[#EEF2FF] dark:bg-[#0D1220]">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
-          eyebrow="// Portfolio"
           title="Featured Projects"
           subtitle="A selection of work I'm proud of. Each project tells a story."
         />

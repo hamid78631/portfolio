@@ -9,7 +9,6 @@ export default function Experience() {
     <section id="experience" className="py-24 bg-[#FAFBFF] dark:bg-[#080C14]">
       <div className="max-w-4xl mx-auto px-6">
         <SectionHeader
-          eyebrow="// Journey"
           title="Experience & Education"
           subtitle="The path that shaped my skills and perspective."
         />
